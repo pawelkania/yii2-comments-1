@@ -54,7 +54,7 @@ class CommentableBehavior extends Behavior
         if (!$this->object_id) {
             $primaryKey = $this->owner->primaryKey();
             if (isset($primaryKey[0])) {
-                $this->object_id = $this->owner->$primaryKey[0];
+                $this->object_id = $this->owner->{$primaryKey[0]};
             } else {
                 throw new InvalidConfigException('"' . get_class($this->owner) . '" must have a primary key.');
             }
